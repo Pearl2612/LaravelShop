@@ -32,7 +32,7 @@ class ProfileController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
-
+        toastr()->success('Profile updated successfully');
         return redirect()->back();
     }
     /* update password */
@@ -44,6 +44,7 @@ class ProfileController extends Controller
         $request->user()->update([
             'password' => bcrypt($request->password)
         ]);
+        toastr()->success('Profile updated successfully');
         return redirect()->back();
     }
 }
