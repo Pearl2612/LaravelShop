@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Backend\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +32,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-
-
+Route::get('admin/login', [AdminController::class, 'login'])->name('admin.login');
 
 
