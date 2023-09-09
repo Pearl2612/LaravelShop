@@ -2,8 +2,8 @@
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\CategoryController;
 use Illuminate\Support\Facades\Route;
-
 /*admin route*/
 Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
@@ -15,3 +15,6 @@ Route::post('profile/update/password', [ProfileController::class, 'updatePasswor
 
 /*Slider routes*/
 Route::resource('slider', SliderController::class);
+
+// Category Route
+Route::resource('category', CategoryController::class);
