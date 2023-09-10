@@ -15,14 +15,15 @@
 
                         </div>
                         <div class="card-body">
-                            <form action="">
+                            <form action="{{route('admin.category.store')}}" method="POST">
+                                @csrf
                                 <div class="form-group">
                                     <label>Icon</label>
-                                    <button class="btn btn-primary" data-selected-class="btn-danger" data-unselected-class="btn-info" role="iconpicker"></button>
+                                    <button class="btn btn-primary" data-selected-class="btn-danger" data-unselected-class="btn-info" role="iconpicker" name="icon" ></button>
                                 </div>
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="file" data-tribute="true" class="form-control" name="banner" value="">
+                                    <input type="text" class="form-control" name="name" value="">
                                 </div>
                                 <div class="form-group">
                                     <label for="inputState">Status</label>
