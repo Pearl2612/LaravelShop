@@ -126,12 +126,14 @@
                                     Swal.fire(
                                         'Deleted!',
                                         data.message,
+                                        'success'
                                     )
                                     window.location.reload();
                                 } else if (data.status == 'error') {
                                     Swal.fire(
                                         'Cant Delete!',
                                         data.message,
+                                        'error'
                                     )
                                 }
                             },

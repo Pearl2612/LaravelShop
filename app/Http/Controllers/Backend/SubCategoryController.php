@@ -7,7 +7,7 @@ use App\Models\SubCategory;
 use App\DataTables\SubCategoryDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\ChildCategory;
 class SubCategoryController extends Controller
 {
     /**
@@ -92,6 +92,11 @@ class SubCategoryController extends Controller
     public function destroy(string $id)
     {
         $subCategory = SubCategory::find($id);
+        $childCategory = ChildCategory::where('sub_category_id', $subCategory->id)->count();
+
+        if($childCategory > 0) {
+            return response(['status' => 'error', 'message' => 'This items has sub category, can not delete']);
+        }
         $subCategory->delete();
         toastr('Delete Successully!', 'success');
         return response(['status' => 'success', 'message' => 'Delete Successully!']);
